@@ -16,7 +16,7 @@ const Users = () =>{
 
     //call the API
     const getUsers = () =>{
-        Axios.get('http://localhost:3002/api/users')
+        Axios.get('http://localhost:3001/api/users')
             .then(response =>
                 setUsers(response.data?.response || []);
             })   
@@ -32,7 +32,7 @@ const Users = () =>{
             id: data.id,
             name: data.name,
         }
-        Axios.post('http://localhost:3002/api/createuser', playload)
+        Axios.post('http://localhost:3001/api/createuser', playload)
             .then(() =>{
                 getUsers();
                 setSubmitted(false);
@@ -50,7 +50,7 @@ const Users = () =>{
             id: data.id,
             name: data.name,
         }
-        Axios.post('http://localhost:3002/api/updateuser', playload)
+        Axios.post('http://localhost:3001/api/updateuser', playload)
             .then(() =>{
                 getUsers();
                 setSubmitted(false);
@@ -61,7 +61,7 @@ const Users = () =>{
     } 
 
     const deleteUser = (data)=>{
-        Axios.post('http://localhost:3002/api/deleteuser', data)
+        Axios.post('http://localhost:3001/api/deleteuser', data)
             .then(() =>{
                 getUsers();
             })   
